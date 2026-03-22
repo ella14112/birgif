@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@300;400;500;700&family=ZCOOL+XiaoWei&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+}
+
+:root {
+    --pink: #ff68af;
+    --pink-soft: #ff94c8;
+    --purple: #9c86ff;
+    --text: #5f5367;
+    --card: rgba(255,255,255,0.74);
+    --border: rgba(255,255,255,0.5);
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(-45deg, #ffe6f1, #ece8ff, #fff0ea, #f7efff);
+    background-size: 400% 400%;
+    animation: gradientBG 18s ease infinite;
+    font-family: 'Noto Sans SC', sans-serif;
+    overflow-x: hidden;
+    padding: 2rem;
+    color: var(--text);
+    position: relative;
+}
+
+.bg-blur {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.55;
+    z-index: 0;
+}
+
+.bg-blur-1 {
+    width: 260px;
+    height: 260px;
+    background: rgba(255, 133, 197, 0.28);
+    top: 8%;
+    left: 8%;
+}
+
+.bg-blur-2 {
+    width: 320px;
+    height: 320px;
+    background: rgba(155, 132, 255, 0.2);
+    right: 5%;
+    bottom: 10%;
+}
+
+.custom-cursor {
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: multiply;
+    transition: transform 0.1s;
+}
+
+.custom-cursor svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 5px rgba(255, 182, 193, 0.5));
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    background: rgba(255,255,255,0.3);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(18px);
+    border-radius: 30px;
+    padding: 2.4rem 1.2rem 3rem;
+    box-shadow: 0 18px 45px rgba(135, 103, 164, 0.12);
+}
+
+.page-badge {
+    display: inline-block;
+    padding: 0.45rem 0.95rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.78);
+    color: var(--pink);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-family: 'ZCOOL XiaoWei', serif;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    color: var(--pink);
+    text-shadow: 2px 8px 20px rgba(255, 105, 180, 0.18);
+    margin-bottom: 1rem;
+}
+
+.intro-text {
+    max-width: 620px;
+    margin: 0 auto 1.8rem;
+    line-height: 1.9;
+    color: #6e6077;
+}
+
+.reason-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 1.5rem;
+    margin: 1.2rem auto;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+    max-width: 760px;
+}
+
+.reason-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 30px rgba(255, 105, 180, 0.15);
+}
+
+.reason-text {
+    font-size: 1.1rem;
+    line-height: 1.85;
+    position: relative;
+    z-index: 2;
+    color: #5d5366;
+}
+
+.gif-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.35s;
+    z-index: 1;
+}
+
+.gif-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 20px;
+}
+
+.reason-card:hover .gif-overlay {
+    opacity: 1;
+}
+
+.shuffle-button {
+    background: linear-gradient(45deg, #ff69b4, #a17cff);
+    border: none;
+    border-radius: 999px;
+    padding: 1rem 1.9rem;
+    font-size: 1.02rem;
+    color: white;
+    margin: 1.6rem 0 0.6rem;
+    transition: all 0.3s;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 600;
+    box-shadow: 0 10px 24px rgba(255, 105, 180, 0.2);
+}
+
+.shuffle-button:hover {
+    transform: scale(1.06);
+}
+
+.shuffle-button.story-mode {
+    background: linear-gradient(45deg, #9b6dff, #ff6dc7);
+    transform: scale(1.05);
+}
+
+.shuffle-button.story-mode:hover {
+    transform: scale(1.12);
+}
+
+.reason-counter {
+    font-size: 0.92rem;
+    color: #b06a96;
+    margin-top: 0.6rem;
+    opacity: 0.9;
+}
+
+.floating {
+    position: fixed;
+    pointer-events: none;
+    animation: float 3s ease-in-out infinite;
+    z-index: 0;
+}
+
+.ending-section {
+    margin-top: 3rem;
+    padding: 1rem 1rem 0;
+    text-align: center;
+}
+
+.ending-text {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 1.8rem;
+    color: #ff69b4;
+    margin-top: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.teddy-hug {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+    transform: scale(0);
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 14px 28px rgba(255, 105, 180, 0.18);
+    border: 6px solid rgba(255,255,255,0.65);
+}
+
+.teddy-hug img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .container {
+        padding: 2rem 0.9rem 2.5rem;
+        border-radius: 24px;
+    }
+
+    .reason-card {
+        margin: 1rem 0;
+        padding: 1.2rem;
+    }
+
+    .reason-text {
+        font-size: 1rem;
+    }
+
+    * {
+        cursor: auto;
+    }
+
+    .custom-cursor {
+        display: none;
+    }
+
+    .teddy-hug {
+        width: 180px;
+        height: 180px;
+    }
+
+    .ending-text {
+        font-size: 1.5rem;
+    }
+}

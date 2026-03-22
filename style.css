@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@300;400;500;700&family=ZCOOL+XiaoWei&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+}
+
+:root {
+    --pink: #ff6fa9;
+    --pink-deep: #ff4f96;
+    --purple: #8f7cff;
+    --text: #5b4b63;
+    --white-soft: rgba(255, 255, 255, 0.66);
+    --border: rgba(255, 255, 255, 0.45);
+    --shadow: 0 12px 35px rgba(148, 102, 181, 0.15);
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.55), transparent 22%),
+        radial-gradient(circle at 80% 15%, rgba(255,255,255,0.32), transparent 18%),
+        linear-gradient(-45deg, #ffe7f3, #ece8ff, #fff2e5, #eefce8);
+    background-size: 400% 400%;
+    animation: gradientBG 16s ease infinite;
+    font-family: 'Noto Sans SC', sans-serif;
+    overflow: hidden;
+    position: relative;
+    color: var(--text);
+}
+
+.cursor {
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #ff8dc7, #ff69b4);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: multiply;
+    box-shadow: 0 0 18px rgba(255, 105, 180, 0.45);
+    transition: transform 0.18s ease;
+}
+
+.hero-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.6;
+    z-index: 0;
+}
+
+.glow-1 {
+    width: 320px;
+    height: 320px;
+    background: rgba(255, 157, 208, 0.35);
+    top: 10%;
+    left: 12%;
+}
+
+.glow-2 {
+    width: 280px;
+    height: 280px;
+    background: rgba(156, 138, 255, 0.25);
+    right: 10%;
+    bottom: 12%;
+}
+
+.container {
+    width: min(92vw, 860px);
+    text-align: center;
+    z-index: 1;
+    padding: 3rem 2rem;
+    background: rgba(255, 255, 255, 0.34);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(18px);
+    border-radius: 32px;
+    box-shadow: var(--shadow);
+}
+
+.hero-badge {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.72);
+    color: var(--pink-deep);
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.12);
+}
+
+h1 {
+    font-family: 'ZCOOL XiaoWei', serif;
+    font-size: clamp(2.6rem, 5vw, 4.4rem);
+    color: var(--pink-deep);
+    text-shadow: 0 6px 20px rgba(255, 105, 180, 0.18);
+    margin-bottom: 1.2rem;
+    opacity: 0;
+}
+
+.greeting {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: clamp(1.55rem, 3vw, 2.2rem);
+    color: var(--purple);
+    margin-bottom: 1.2rem;
+    min-height: 2.2em;
+}
+
+.hero-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    margin: 0 auto 2.4rem;
+    max-width: 620px;
+    color: #705d7a;
+}
+
+.cta-button {
+    padding: 1rem 2rem;
+    font-size: 1.08rem;
+    background: linear-gradient(45deg, #ff69b4, #a07bff);
+    border: none;
+    border-radius: 999px;
+    color: white;
+    box-shadow: 0 14px 28px rgba(255, 105, 180, 0.25);
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 18px 30px rgba(255, 105, 180, 0.3);
+}
+
+.floating {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 0;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .container {
+        padding: 2.2rem 1.2rem;
+        border-radius: 24px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.96rem;
+        line-height: 1.8;
+    }
+
+    .cursor {
+        display: none;
+    }
+
+    * {
+        cursor: auto;
+    }
+}
